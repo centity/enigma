@@ -8,7 +8,7 @@ public:
     char transform(char c, int offset);
 
 private:
-    char map[27];
+    char map[26];
 };
 
 #endif // TRANSFORMER_H
