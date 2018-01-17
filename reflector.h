@@ -5,7 +5,7 @@
 
 class Reflector : public Transformer {
 public:
-    Reflector(char letters[]);
+    Reflector(const char letters[]);
     char transform(char letter);
 };
 

@@ -1,6 +1,6 @@
 #include "reflector.h"
 
-Reflector::Reflector(char letters[])
+Reflector::Reflector(const char letters[])
     : Transformer(letters)
 {
 }
