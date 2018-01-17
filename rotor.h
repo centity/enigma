@@ -6,7 +6,7 @@
 class Rotor : public Transformer {
 public:
     Rotor(char letters[], int start);
-    char transform(char c);
+    char transform(char letter);
     void rotate();
 private:
     char map[26];

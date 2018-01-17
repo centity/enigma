@@ -1,7 +1,7 @@
 #include "reflector.h"
 
 Reflector::Reflector(char letters[])
-    : Transformer(letters[])
+    : Transformer(letters, letters)
 {
 }
 
