@@ -6,8 +6,8 @@ Reflector::Reflector(char letters[]) {
     }
 }
 
-char Reflector::transform(char letter){
-    int x = letter - 97;
+char Reflector::transform(char letter) {
+    int x = letter - 'a';
     letter = map[x];
     return letter;
 }
