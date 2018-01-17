@@ -2,9 +2,11 @@
 #include "rotor.h"
 #include "reflector.h"
 #include "plugboard.h"
+#include "enigma.h"
 
 int main()
 {
+    //Enigma enigma("abcdefghijklmnopqrstuvw", )
     int lRot, mRot, rRot;
     int ref;
     char lStart, mStart, rStart;
