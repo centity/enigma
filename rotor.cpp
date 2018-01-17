@@ -8,11 +8,11 @@ Rotor::Rotor(const char letters[], const char rLetters[], int start)
 }
 
 char Rotor::transform(char letter){
-    return this->Transformer::transform(letter, offset)
+    return this->Transformer::transform(letter, offset);
 }
 
 char Rotor::rTransform(char letter){
-    return this->Transformer::rTransform(letter,offset)
+    return this->Transformer::rTransform(letter,offset);
 }
 
 void Rotor::rotate(){

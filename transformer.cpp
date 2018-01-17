@@ -7,10 +7,10 @@ Transformer::Transformer(const char letters[], const char rLetters[]) {
     }
 }
 
-Transformer::transform(char letter, int offset){
+char Transformer::transform(char letter, int offset){
     return map[(letter - 'a' + offset)  % 26];
 }
 
-Transformer::rTransform(char letter, int offset){
+char Transformer::rTransform(char letter, int offset){
     return rMap[(letter - 'a' + offset)  % 26];
 }
