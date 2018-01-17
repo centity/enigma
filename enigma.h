@@ -7,7 +7,8 @@
 
 class Enigma {
 public:
-    Enigma(char plugMap[], int lRotNum, lRotOff, mRotNum, mRotOff, rRotNum, rRotOff, refNum);
+    Enigma(const char plugMap[], int lRotNum, int lRotOff, int mRotNum,
+           int mRotOff, int rRotNum, int rRotOff, int refNum);
     char transform(char letter);
 
 private:
