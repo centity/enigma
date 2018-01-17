@@ -18,13 +18,6 @@ int main()
         "esovpzjayquirhxlnftgkdcmwb",
         "vzbrgityupsdnhlxawmjqofeck"};
 
-    char rotReflectedMaps[5][27] = {
-        "uwygadfpvzbeckmthxslrinqoj",
-        "ajpczwrlfbdkotyuqgenhxmivs",
-        "tagbpcsdqeufvnzhyixjwlrkom",
-        "hzwvartnlgupxqcejmbskdyoif",
-        "qcylxwenftzosmvjudkgiarphb"};
-
     char refMaps[2][27] = {
         "yruhqsldpxngokmiebfzcwvjat",
         "fvpjiaoyedrzxwgctkuqsbnmhl"};
@@ -32,8 +25,6 @@ int main()
     char plugMap[27] = {
         "abcdefghijklmnopqrstuvwxyz"};
 
-    char plugReflectedMap[27] = {
-        "abcdefghijklmnopqrstuvwxyz"};
 
 
     // To become user defined
@@ -45,11 +36,11 @@ int main()
     // Set the offset based on the start position of each rotor
     lOffset = lStart - 'a', mOffset = mStart - 'a', rOffset = rStart - 'a';
 
-    Rotor lRotor(rotMaps[lRot], rotReflectedMaps[lRot], lOffset);
-    Rotor mRotor(rotMaps[mRot], rotReflectedMaps[mRot], mOffset);
-    Rotor rRotor(rotMaps[rRot], rotReflectedMaps[rRot], rOffset);
+    Rotor lRotor(rotMaps[lRot], lOffset);
+    Rotor mRotor(rotMaps[mRot], mOffset);
+    Rotor rRotor(rotMaps[rRot], rOffset);
     Reflector reflector(refMaps[ref]);
-    Plugboard plugboard(plugMap, plugReflectedMap);
+    Plugboard plugboard(plugMap);
 
     int i = 0;
     while (i < 4){
