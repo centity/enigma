@@ -1,9 +1,9 @@
 #include <iostream>
 #include "rotor.h"
 
-Rotor::Rotor(const char letters[], int start)
+Rotor::Rotor(const char letters[], char start)
     : Transformer(letters)
-    , offset(start)
+    , offset(start - 'a')
 {
 }
 
@@ -12,7 +12,7 @@ char Rotor::transform(char letter){
 }
 
 char Rotor::rTransform(char letter){
-    return this->Transformer::rTransform(letter,offset);
+    return this->Transformer::rTransform(letter, offset);
 }
 
 void Rotor::rotate(){
