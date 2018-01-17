@@ -6,7 +6,7 @@
 
 class Plugboard : public Transformer {
 public:
-    Plugboard(const char letters[], const char rLetters[]);
+    Plugboard(const char letters[]);
     char transform(char letter);
     char rTransform(char letter);
 };

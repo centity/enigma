@@ -1,6 +1,6 @@
 #include "enigma.h"
 
-Enigma::Enigma()
+Enigma::Enigma(plugMap, plugRMap, )
 {
 
 }

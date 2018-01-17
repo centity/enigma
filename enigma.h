@@ -7,6 +7,7 @@
 
 class Enigma {
 public:
+    char transform(char letter);
 private:
     class Rotor lRotor, mRotor, rRotor;
     class Reflector reflector;

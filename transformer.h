@@ -4,7 +4,7 @@
 
 class Transformer {
 public:
-    Transformer(const char letters[], const char rLetters[]);
+    Transformer(const char letters[]);
     char transform(char letter, int offset);
     char rTransform(char letter, int offset);
 

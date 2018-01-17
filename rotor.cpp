@@ -1,8 +1,8 @@
 #include <iostream>
 #include "rotor.h"
 
-Rotor::Rotor(const char letters[], const char rLetters[], int start)
-    : Transformer(letters, rLetters)
+Rotor::Rotor(const char letters[], int start)
+    : Transformer(letters)
     , offset(start)
 {
 }
