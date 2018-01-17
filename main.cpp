@@ -32,6 +32,9 @@ int main()
     char plugMap[27] = {
         "abcdefghijklmnopqrstuvwxyz"};
 
+    char plugReflectedMap[27] = {
+        "abcdefghijklmnopqrstuvwxyz"};
+
 
     // To become user defined
     lRot = 2, mRot = 1, rRot = 0;
@@ -42,11 +45,11 @@ int main()
     // Set the offset based on the start position of each rotor
     lOffset = lStart - 'a', mOffset = mStart - 'a', rOffset = rStart - 'a';
 
-    Rotor lRotor(rotMaps[lRot], lOffset);
-    Rotor mRotor(rotMaps[mRot], mOffset);
-    Rotor rRotor(rotMaps[rRot], rOffset);
+    Rotor lRotor(rotMaps[lRot], rotReflectedMaps[lRot], lOffset);
+    Rotor mRotor(rotMaps[mRot], rotReflectedMaps[mRot], mOffset);
+    Rotor rRotor(rotMaps[rRot], rotReflectedMaps[rRot], rOffset);
     Reflector reflector(refMaps[ref]);
-    Plugboard plugboard(plugMap);
+    Plugboard plugboard(plugMap, plugReflectedMap);
 
     int i = 0;
     while (i < 4){

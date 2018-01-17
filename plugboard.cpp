@@ -1,6 +1,6 @@
 #include "plugboard.h"
 
-Reflector::Reflector(char letters[])
+Plugboard::Plugboard(const char letters[], const char rLetters[])
     : Transformer(letters, rLetters)
 {
 }
