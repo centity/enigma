@@ -1,55 +1,66 @@
 #include <iostream>
 #include "rotor.h"
+#include "reflector.h"
+#include "plugboard.h"
 
 int main()
 {
     int lRot, mRot, rRot;
+    int ref;
     char lStart, mStart, rStart;
     int lOffset, mOffset, rOffset;
     char chr;
 
-    /*
-    // Letter mapping of each rotor
-    char rMaps[5][27] = {
+    char rotMaps[5][27] = {
         "ekmflgdqvzntowyhxuspaibrcj",
         "ajdksiruxblhwtmcqgznpyfvoe",
         "bdfhjlcprtxvznyeiwgakmusqo",
         "esovpzjayquirhxlnftgkdcmwb",
         "vzbrgityupsdnhlxawmjqofeck"};
-    */
 
-    char rMaps[5][27] = {
-        "abcdefghijklmnopqrstuvwxyz",
-        "abcdefghijklmnopqrstuvwxyz",
-        "abcdefghijklmnopqrstuvwxyz",
-        "abcdefghijklmnopqrstuvwxyz",
+    char rotReflectedMaps[5][27] = {
+        "uwygadfpvzbeckmthxslrinqoj",
+        "ajpczwrlfbdkotyuqgenhxmivs",
+        "tagbpcsdqeufvnzhyixjwlrkom",
+        "hzwvartnlgupxqcejmbskdyoif",
+        "qcylxwenftzosmvjudkgiarphb"}
+
+    char refMaps[2][27] = {
+        "yruhqsldpxngokmiebfzcwvjat",
+        "fvpjiaoyedrzxwgctkuqsbnmhl"};
+
+    char plugMap[27] = {
         "abcdefghijklmnopqrstuvwxyz"};
 
 
     // To become user defined
     lRot = 2, mRot = 1, rRot = 0;
+    ref = 0;
     lStart = 'a', mStart = 'a', rStart = 'a';
     char input[] = "test";
 
     // Set the offset based on the start position of each rotor
-    lOffset = lStart - 97, mOffset = mStart - 97, rOffset = rStart - 97;
+    lOffset = lStart - 'a', mOffset = mStart - 'a', rOffset = rStart - 'a';
 
-    Rotor lRotor(rMaps[lRot], &lOffset);
-    Rotor mRotor(rMaps[mRot], &mOffset);
-    Rotor rRotor(rMaps[rRot], &rOffset);
+    Rotor lRotor(rotMaps[lRot], lOffset);
+    Rotor mRotor(rotMaps[mRot], mOffset);
+    Rotor rRotor(rotMaps[rRot], rOffset);
+    Reflector reflector(refMaps[ref]);
+    Plugboard plugboard(plugMap);
 
     int i = 0;
     while (i < 4){
         chr = input[i];
+        chr = plugboard.transform(chr);
         chr = lRotor.transform(mRotor.transform(rRotor.transform(chr)));
+        chr = reflector.transform(chr);
         std::cout << chr;
 
         i++;
 
-        // Right rotor turns every time, middle and right rotor turn
-        // every 26 turns of the rotor to its right
-        rOffset ++;
-        if (i % 26 == 0) {mOffset ++;}
-        if (i % 676 == 0) {rOffset ++;}
+
+        rRotor.rotate();
+        if (i % 26 == 0) {mRotor.rotate();} // Every 26 turns of rRotor
+        if (i % 676 == 0) {lRotor.rotate();} // Every 26 turns of mROtor
     }
 }
