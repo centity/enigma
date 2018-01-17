@@ -6,9 +6,11 @@ CONFIG -= qt
 SOURCES += main.cpp \
     transformer.cpp \
     rotor.cpp \
-    reflector.cpp
+    reflector.cpp \
+    plugboard.cpp
 
 HEADERS += \
     transformer.h \
     rotor.h \
-    reflector.h
+    reflector.h \
+    plugboard.h
