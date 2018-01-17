@@ -5,11 +5,12 @@
 
 class Rotor : public Transformer {
 public:
-    Rotor(char letters[], int start);
+    Rotor(const char letters[], const char rLetters[], int start);
     char transform(char letter);
+    char rTransform(char letter);
     void rotate();
+
 private:
-    char map[26];
     int offset;
 };
 

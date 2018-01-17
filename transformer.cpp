@@ -8,9 +8,9 @@ Transformer::Transformer(const char letters[], const char rLetters[]) {
 }
 
 Transformer::transform(char letter, int offset){
-    return map[(letter + offset)  % 26];
+    return map[(letter - 'a' + offset)  % 26];
 }
 
 Transformer::rTransform(char letter, int offset){
-    return rMap[(letter + offset)  % 26];
+    return rMap[(letter - 'a' + offset)  % 26];
 }
