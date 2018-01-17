@@ -6,8 +6,8 @@ Transformer::Transformer(const char letters[]) {
     }
 }
 
-Transformer::transform(char c, int offset){
-    return map[(c + offset)  % 26];
+Transformer::transform(char letter, int offset){
+    return map[(letter + offset)  % 26];
 }
 
 
