@@ -23,7 +23,7 @@ int main()
         "ajpczwrlfbdkotyuqgenhxmivs",
         "tagbpcsdqeufvnzhyixjwlrkom",
         "hzwvartnlgupxqcejmbskdyoif",
-        "qcylxwenftzosmvjudkgiarphb"}
+        "qcylxwenftzosmvjudkgiarphb"};
 
     char refMaps[2][27] = {
         "yruhqsldpxngokmiebfzcwvjat",

@@ -5,11 +5,9 @@
 class Plugboard
 {
 public:
-    Plugboard(char letters[]);
+    Plugboard(const char letters[], const char rLetters[]);
     char transform(char letter);
-
-private:
-    char map[26];
+    char rTransform(char letter);
 };
 
 #endif // PLUGBOARD_H

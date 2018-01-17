@@ -1,13 +1,14 @@
 #include "plugboard.h"
 
-Plugboard::Plugboard(char letters[]) {
-    for (int i = 0; i < 26; i++){
-        map[i] = letters[i];
-    }
+Reflector::Reflector(char letters[])
+    : Transformer(letters, rLetters)
+{
 }
 
 char Plugboard::transform(char letter) {
-    int x = letter - 'a';
-    letter = map[x];
-    return letter;
+    return this->Transformer::transform(letter, 0);
+}
+
+char Plugboard::rTransform(char letter) {
+    return this->Transformer::rTransform(letter, 0);
 }
