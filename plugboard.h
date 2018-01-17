@@ -5,7 +5,11 @@
 class Plugboard
 {
 public:
-    Plugboard();
+    Plugboard(char letters[]);
+    char transform(char letter);
+
+private:
+    char map[26];
 };
 
 #endif // PLUGBOARD_H

@@ -5,12 +5,12 @@
 
 class Rotor : public Transformer {
 public:
-    Rotor(char letters[], int *offsetPtr);
+    Rotor(char letters[], int start);
     char transform(char c);
-
+    void rotate();
 private:
     char map[26];
-    int *offset;
+    int offset;
 };
 
 #endif // ROTOR_H
