@@ -10,12 +10,12 @@ class Enigma {
 public:
     Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
            char mStartChar, int rRotNum, char rStartChar, int refNum);
-    char transform(std::string toTransform);
+    char transform(char letter);
 
 private:
+    Plugboard plugboard;
     Rotor lRotor, mRotor, rRotor;
     Reflector reflector;
-    Plugboard plugboard;
 
     const char *rotMaps[5] = {
         "ekmflgdqvzntowyhxuspaibrcj",
@@ -27,6 +27,8 @@ private:
     const char *refMaps[2] = {
         "yruhqsldpxngokmiebfzcwvjat",
         "fvpjiaoyedrzxwgctkuqsbnmhl"};
+
+    int rotationCounter = 0;
 };
 
 #endif // ENIGMA_H

@@ -7,14 +7,15 @@
 int main()
 {
     // Placeholders
+    char plugMap[] = "abcdefghijklmnopqrstuvwxyz";
     int lRotNum = 0, mRotNum = 0, rRotNum = 0;
     char lStartChar = 'a', mStartChar = 'a', rStartChar = 'a';
     int refNum = 0;
 
-    Enigma enigma("abcdefghijklmnopqrstuvwxyz", lRotNum, lStartChar, mRotNum,
+    Enigma enigma(plugMap, lRotNum, lStartChar, mRotNum,
                   mStartChar, rRotNum, rStartChar, refNum);
 
-    enigma.transform("a");
+    enigma.transform('a');
 
     /*
     char test[] = "test";

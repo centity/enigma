@@ -14,22 +14,17 @@ Enigma::Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
 {
 }
 
-char Enigma::transform(std::string toTransform) {
-    char letter;
-    int i = 0;
-    while (i < toTransform.length()) {
-        letter = toTransform[i];
-        letter = plugboard.transform(letter);
-        letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));
-        letter = reflector.transform(letter);
-        letter = rRotor.rTransform(mRotor.rTransform(lRotor.rTransform(letter)));
-        letter = plugboard.rTransform(letter);
+char Enigma::transform(char letter) {
+    letter = plugboard.transform(letter);
+    letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));
+    letter = reflector.transform(letter);
+    letter = rRotor.rTransform(mRotor.rTransform(lRotor.rTransform(letter)));
+    letter = plugboard.rTransform(letter);
 
-        i++;
-        rRotor.rotate(); // Every letter
-        if (i % 26 == 0) {mRotor.rotate();} // Every 26 rotates of rRotor
-        if (i % 676 == 0) {lRotor.rotate();} // Every 26 rotates of mRotor
-    }
+    rotationCounter ++;
+    rRotor.rotate(); // Every letter
+    if (rotationCounter % 26 == 0) {mRotor.rotate();} // Every 26 rotates of rRotor
+    if (rotationCounter % 676 == 0) {lRotor.rotate();} // Every 26 rotates of mRotor
 
     return letter;
 }
