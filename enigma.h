@@ -9,9 +9,10 @@ class Enigma {
 public:
     Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
            char mStartChar, int rRotNum, char rStartChar, int refNum);
-    char transform(char letter);
+    char transform(char toTransform);
 
 private:
+    int RotationCounter;
     Rotor lRotor, mRotor, rRotor;
     Reflector reflector;
     Plugboard plugboard;
