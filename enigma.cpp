@@ -4,6 +4,17 @@
 #include "plugboard.h"
 #include <string>
 
+const static char *rotMaps[] = {
+    "ekmflgdqvzntowyhxuspaibrcj",
+    "ajdksiruxblhwtmcqgznpyfvoe",
+    "bdfhjlcprtxvznyeiwgakmusqo",
+    "esovpzjayquirhxlnftgkdcmwb",
+    "vzbrgityupsdnhlxawmjqofeck"};
+
+const static char *refMaps[] = {
+    "yruhqsldpxngokmiebfzcwvjat",
+    "fvpjiaoyedrzxwgctkuqsbnmhl"};
+
 Enigma::Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
        char mStartChar, int rRotNum, char rStartChar, int refNum)
     : plugboard(plugMap),

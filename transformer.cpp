@@ -12,6 +12,9 @@ char Transformer::transform(char letter, int offset){
 }
 
 char Transformer::rTransform(char letter, int offset){
-    return rMap[(letter - 'a' + offset)  % 26];
+    for (int i = 0; i < 26; i++)
+        if (map[(i + offset) % 26] == letter)
+        return 'a' + i;
 }
+
 

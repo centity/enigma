@@ -17,17 +17,6 @@ private:
     Rotor lRotor, mRotor, rRotor;
     Reflector reflector;
 
-    const char *rotMaps[5] = {
-        "ekmflgdqvzntowyhxuspaibrcj",
-        "ajdksiruxblhwtmcqgznpyfvoe",
-        "bdfhjlcprtxvznyeiwgakmusqo",
-        "esovpzjayquirhxlnftgkdcmwb",
-        "vzbrgityupsdnhlxawmjqofeck"};
-
-    const char *refMaps[2] = {
-        "yruhqsldpxngokmiebfzcwvjat",
-        "fvpjiaoyedrzxwgctkuqsbnmhl"};
-
     int rotationCounter = 0;
 };
 
