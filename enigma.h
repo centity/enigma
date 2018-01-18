@@ -8,8 +8,8 @@
 
 class Enigma {
 public:
-    Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
-           char mStartChar, int rRotNum, char rStartChar, int refNum);
+    Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNum,
+           int mStartPosition, int rRotNum, int rStartPosition, int refNum);
     char transform(char letter);
 
 private:

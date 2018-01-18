@@ -4,6 +4,7 @@
 #include "plugboard.h"
 #include <string>
 
+
 const static char *rotMaps[] = {
     "ekmflgdqvzntowyhxuspaibrcj",
     "ajdksiruxblhwtmcqgznpyfvoe",
@@ -15,15 +16,17 @@ const static char *refMaps[] = {
     "yruhqsldpxngokmiebfzcwvjat",
     "fvpjiaoyedrzxwgctkuqsbnmhl"};
 
-Enigma::Enigma(const char plugMap[], int lRotNum, char lStartChar, int mRotNum,
-       char mStartChar, int rRotNum, char rStartChar, int refNum)
+
+Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNum,
+       int mStartPosition, int rRotNum, int rStartPosition, int refNum)
     : plugboard(plugMap),
-      lRotor(rotMaps[lRotNum], lStartChar),
-      mRotor(rotMaps[mRotNum], mStartChar),
-      rRotor(rotMaps[rRotNum], rStartChar),
+      lRotor(rotMaps[lRotNum], lStartPosition),
+      mRotor(rotMaps[mRotNum], mStartPosition),
+      rRotor(rotMaps[rRotNum], rStartPosition),
       reflector(refMaps[refNum])
 {
 }
+
 
 char Enigma::transform(char letter) {
     letter = plugboard.transform(letter);

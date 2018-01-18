@@ -5,7 +5,7 @@
 
 class Rotor : public Transformer {
 public:
-    Rotor(const char letters[], char start);
+    Rotor(const char letters[], int startPosition);
     char transform(char letter);
     char rTransform(char letter);
     void rotate();

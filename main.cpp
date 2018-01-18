@@ -4,29 +4,23 @@
 #include "plugboard.h"
 #include "enigma.h"
 
-int main(int argc, char **argv)
+using namespace std;
+
+int main()
 {
-    // Placeholders
     char plugMap[] = "abcdefghijklmnopqrstuvwxyz";
-    int lRotNum = 2, mRotNum = 3, rRotNum = 4;
-    char lStartChar = 'f', mStartChar = 'a', rStartChar = 'z';
-    int refNum = 1;
+    int lRotNum = 2, mRotNum = 1, rRotNum = 0;
+    int lStartPosition = 0, mStartPosition = 0, rStartPosition = 0;
+    int refNum = 0;
 
-    Enigma enigma(plugMap, lRotNum, lStartChar, mRotNum,
-                  mStartChar, rRotNum, rStartChar, refNum);
+    cout << "Welcome to Enigma" << endl;
 
-    //char *p = argv[1];
-    char *p = "vrsctebghtuopiefpgrotughbcsdasxpdqhwwdzvze";
+    Enigma enigma(plugMap, lRotNum, lStartPosition, mRotNum,
+                  mStartPosition, rRotNum, rStartPosition, refNum);
+
+    const char *p = "vdhwq";
     while (*p) {
         std::cout << enigma.transform(*p);
     ++p;
     }
-
-    /*
-    char test[] = "test";
-    for (int i = 0; i < 4; i++){
-        test[i] = enigma.transform(test[i]);
-        std::cout << test[i];
-    }
-    */
 }
