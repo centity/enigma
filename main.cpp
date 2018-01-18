@@ -14,9 +14,13 @@ int main()
     Enigma enigma("abcdefghijklmnopqrstuvwxyz", lRotNum, lStartChar, mRotNum,
                   mStartChar, rRotNum, rStartChar, refNum);
 
+    enigma.transform("a");
+
+    /*
     char test[] = "test";
     for (int i = 0; i < 4; i++){
         test[i] = enigma.transform(test[i]);
         std::cout << test[i];
     }
+    */
 }
