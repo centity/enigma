@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "rotor.h"
 #include "reflector.h"
 #include "plugboard.h"

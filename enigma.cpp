@@ -29,16 +29,16 @@ Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNu
 
 // Self explanatory
 char Enigma::transform(char letter) {
+    rotationCounter ++;
+    rRotor.rotate(); // Every letter
+    if (rotationCounter % 26 == 0) {mRotor.rotate();} // Every 26 rotates of rRotor
+    if (rotationCounter % 676 == 0) {lRotor.rotate();} // Every 26 rotates of mRotor
+
     letter = plugboard.transform(letter);
     letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));
     letter = reflector.transform(letter);
     letter = rRotor.rTransform(mRotor.rTransform(lRotor.rTransform(letter)));
     letter = plugboard.rTransform(letter);
-
-    rotationCounter ++;
-    rRotor.rotate(); // Every letter
-    if (rotationCounter % 26 == 0) {mRotor.rotate();} // Every 26 rotates of rRotor
-    if (rotationCounter % 676 == 0) {lRotor.rotate();} // Every 26 rotates of mRotor
 
     return letter;
 }
