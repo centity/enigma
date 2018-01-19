@@ -1,11 +1,8 @@
 #include "transformer.h"
 
 Transformer::Transformer(const char letters[]) {
-    for (int i = 0; i < 26; i++){
+    for (int i = 0; i < 26; i++)
         map[i] = letters[i];
-        // Reverse mapping is generated dynamically
-        rMap[letters[i] - 'a'] = i + 'a';
-    }
 }
 
 char Transformer::transform(char letter, int offset){
@@ -13,9 +10,14 @@ char Transformer::transform(char letter, int offset){
 }
 
 char Transformer::rTransform(char letter, int offset){
-    for (int i = 0; i < 26; i++)
+    int i;
+
+    // Dynamically creates reverse mapping based on given offset
+    for (i = 0; i < 26; i++)
         if (map[(i + offset) % 26] == letter)
-        return 'a' + i;
+            break;
+
+    return 'a' + i;
 }
 
 

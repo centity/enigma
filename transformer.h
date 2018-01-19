@@ -9,9 +9,8 @@ public:
     char rTransform(char letter, int offset);
 
 private:
-    // Map and reverse map members
+    // Map member
     char map[26];
-    char rMap[26];
 };
 
 #endif // TRANSFORMER_H

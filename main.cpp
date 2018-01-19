@@ -13,7 +13,6 @@ bool isAllowed(char a);
 
 int main()
 {
-
     // Default enigma settings
     char plugMap[] = "abcdefghijklmnopqrstuvwxyz";
     int lRotNum = 2, mRotNum = 1, rRotNum = 0;
@@ -35,6 +34,7 @@ int main()
         if (mode == 1) {
             string message;
             int messageLength;
+
             Enigma enigma(plugMap, lRotNum, lStartPosition, mRotNum,
                           mStartPosition, rRotNum, rStartPosition, refNum);
 
@@ -42,6 +42,7 @@ int main()
             cin >> message;
             messageLength = message.length();
 
+            // Send letters to engima only if valid
             for (int i = 0; i < messageLength; i++) {
                 char letter = message[i];
                 if (isAllowed(letter)) {
@@ -142,6 +143,7 @@ int main()
 // Takes a char from the user
 int getChar() {
     char input;
+
     while (true) {
         cin >> input;
         if (isAllowed(input))
@@ -154,6 +156,7 @@ int getChar() {
 // Takes user input and checks if it is a valid integer
 int getInt(int lower, int upper) {
     int input;
+
     while (!(cin >> input) || input < lower || input > upper) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
