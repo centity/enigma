@@ -1,5 +1,6 @@
 #include "plugboard.h"
 
+// Uses the base class constructor and transform
 Plugboard::Plugboard(const char letters[])
     : Transformer(letters)
 {

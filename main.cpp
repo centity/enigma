@@ -35,6 +35,7 @@ int main()
             string message;
             int messageLength;
 
+            // Creates an enigma object from the loac variables used to transform
             Enigma enigma(plugMap, lRotNum, lStartPosition, mRotNum,
                           mStartPosition, rRotNum, rStartPosition, refNum);
 
@@ -53,7 +54,7 @@ int main()
             cout << endl;
         }
 
-        // View settings
+        // Returns the default or user modified settings
         else if (mode == 2) {
             cout << endl << "Left rotor: " << lRotNum + 1 << " / Start position: " << lStartPosition + 1 << endl;
             cout << "Middle rotor: " << mRotNum + 1 << " / Start position: " << mStartPosition + 1 << endl;
@@ -126,13 +127,14 @@ int main()
                     }
                 }
 
-                // Quit
+                // Back
                 if (setting == 0)
                     break;
             }
 
         }
 
+        // Quits
         else if (mode == 0)
             break;
     }
@@ -144,6 +146,7 @@ int main()
 int getChar() {
     char input;
 
+    // Loops until a valid input is received
     while (true) {
         cin >> input;
         if (isAllowed(input))

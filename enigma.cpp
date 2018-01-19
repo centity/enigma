@@ -37,6 +37,7 @@ char Enigma::transform(char letter) {
     if (mRotor.isNotched())
             lRotor.step();
 
+    // Each object applies its charactristic transformation
     letter = plugboard.transform(letter);
     letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));
     letter = reflector.transform(letter);

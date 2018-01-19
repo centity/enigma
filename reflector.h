@@ -5,6 +5,7 @@
 
 class Reflector : public Transformer {
 public:
+    // Reflector has no rTransform since it has no reverse behaviour
     Reflector(const char letters[]);
     char transform(char letter);
 };

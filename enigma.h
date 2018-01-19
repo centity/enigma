@@ -12,6 +12,7 @@ public:
     char transform(char letter);
 
 private:
+    // Creates instances of each child class
     Plugboard plugboard;
     Rotor lRotor, mRotor, rRotor;
     Reflector reflector;
