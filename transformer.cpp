@@ -3,6 +3,7 @@
 Transformer::Transformer(const char letters[]) {
     for (int i = 0; i < 26; i++){
         map[i] = letters[i];
+        // Reverse mapping is generated dynamically
         rMap[letters[i] - 'a'] = i + 'a';
     }
 }

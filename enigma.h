@@ -4,7 +4,6 @@
 #include "rotor.h"
 #include "reflector.h"
 #include "plugboard.h"
-#include <string>
 
 class Enigma {
 public:

@@ -4,7 +4,7 @@
 #include "plugboard.h"
 #include <string>
 
-
+// Arrays to store the mapping of the rotors and reflectors
 const static char *rotMaps[] = {
     "ekmflgdqvzntowyhxuspaibrcj",
     "ajdksiruxblhwtmcqgznpyfvoe",
@@ -16,7 +16,7 @@ const static char *refMaps[] = {
     "yruhqsldpxngokmiebfzcwvjat",
     "fvpjiaoyedrzxwgctkuqsbnmhl"};
 
-
+// Enigma constructor passes the maps to the various transformer constructors
 Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNum,
        int mStartPosition, int rRotNum, int rStartPosition, int refNum)
     : plugboard(plugMap),
@@ -27,7 +27,7 @@ Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNu
 {
 }
 
-
+// Self explanatory
 char Enigma::transform(char letter) {
     letter = plugboard.transform(letter);
     letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));

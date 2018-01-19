@@ -9,6 +9,7 @@ public:
     char rTransform(char letter, int offset);
 
 private:
+    // Map and reverse map members
     char map[26];
     char rMap[26];
 };
