@@ -12,6 +12,8 @@ const static char *rotMaps[] = {
     "esovpzjayquirhxlnftgkdcmwb",
     "vzbrgityupsdnhlxawmjqofeck"};
 
+const static char rotNotch[] = "ymdrh";
+
 const static char *refMaps[] = {
     "yruhqsldpxngokmiebfzcwvjat",
     "fvpjiaoyedrzxwgctkuqsbnmhl"};
@@ -20,19 +22,19 @@ const static char *refMaps[] = {
 Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNum,
        int mStartPosition, int rRotNum, int rStartPosition, int refNum)
     : plugboard(plugMap),
-      lRotor(rotMaps[lRotNum], lStartPosition),
-      mRotor(rotMaps[mRotNum], mStartPosition),
-      rRotor(rotMaps[rRotNum], rStartPosition),
+      lRotor(rotMaps[lRotNum], rotNotch[lRotNum], lStartPosition),
+      mRotor(rotMaps[mRotNum], rotNotch[mRotNum], mStartPosition),
+      rRotor(rotMaps[rRotNum], rotNotch[rRotNum], rStartPosition),
       reflector(refMaps[refNum])
 {
 }
 
 // Self explanatory
 char Enigma::transform(char letter) {
-    rotationCounter ++;
-    rRotor.rotate(); // Every letter
-    if (rotationCounter % 26 == 0) {mRotor.rotate();} // Every 26 rotates of rRotor
-    if (rotationCounter % 676 == 0) {lRotor.rotate();} // Every 26 rotates of mRotor
+    if (rRotor.isNotched())
+            mRotor.rotate();
+    if (mRotor.isNotched())
+            lRotor.rotate();
 
     letter = plugboard.transform(letter);
     letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));

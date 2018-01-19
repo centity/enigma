@@ -23,28 +23,28 @@ int main()
     int mode;
 
     // CLI with user menus
-    cout << "\nWelcome to Enigma.\n";
-    while (true){
-        cout << "\n 1) Transform message\n";
-        cout << " 2) View settings\n";
-        cout << " 3) Alter settings\n";
-        cout << " 0) Quit\n";
+    cout << endl << "Welcome to Enigma."<< endl;
+    while (true) {
+        cout << endl << " 1) Transform message" << endl;
+        cout << " 2) View settings" << endl;
+        cout << " 3) Alter settings" << endl;
+        cout << " 0) Quit" << endl;
         mode = getInt(0, 3);
 
         // Transform message
-        if (mode == 1){
+        if (mode == 1) {
             string message;
             int messageLength;
             Enigma enigma(plugMap, lRotNum, lStartPosition, mRotNum,
                           mStartPosition, rRotNum, rStartPosition, refNum);
 
-            cout << "Enter a lowercase message without whitespace: \n";
+            cout << "Enter a lowercase message without whitespace: " << endl;
             cin >> message;
             messageLength = message.length();
 
-            for (int i = 0; i < messageLength; i++){
+            for (int i = 0; i < messageLength; i++) {
                 char letter = message[i];
-                if (isAllowed(letter)){
+                if (isAllowed(letter)) {
                     letter = enigma.transform(letter);
                     cout << letter;
                 }
@@ -53,11 +53,11 @@ int main()
         }
 
         // View settings
-        else if (mode == 2){
-            cout << "\nLeft rotor: " << lRotNum + 1 << " / Start position: " << lStartPosition + 1 << endl;
+        else if (mode == 2) {
+            cout << endl << "Left rotor: " << lRotNum + 1 << " / Start position: " << lStartPosition + 1 << endl;
             cout << "Middle rotor: " << mRotNum + 1 << " / Start position: " << mStartPosition + 1 << endl;
             cout << "Right rotor: " << rRotNum + 1 << " / Start position: " << rStartPosition + 1 << endl;
-            cout << "Reflector: " << refNum + 1 << "\n";
+            cout << "Reflector: " << refNum + 1 << endl;
             cout << "Plugboard map: ";
             for (int i = 0; i < 26; i++) {
                 cout << plugMap[i];
@@ -68,17 +68,17 @@ int main()
         // Menu for changing enigma settings
         else if (mode == 3) {
             int setting;
-            while (true){
-                cout << "\n 1) Rotors\n";
-                cout << " 2) Rotor offsets\n";
-                cout << " 3) Reflector\n";
-                cout << " 4) Plugboard pairs\n";
-                cout << " 0) Back\n";
+            while (true) {
+                cout << endl << " 1) Rotors" << endl;
+                cout << " 2) Rotor offsets" << endl;
+                cout << " 3) Reflector" << endl;
+                cout << " 4) Plugboard pairs" << endl;
+                cout << " 0) Back" << endl;
                 setting = getInt(0, 4);
 
                 // Chooses rotor
                 if (setting == 1) {
-                    cout << "Select rotors from 1 - 5.\n";
+                    cout << "Select rotors from 1 - 5." << endl;
 
                     cout << "Left: ";
                     lRotNum = getInt(1, 5) - 1;
@@ -90,7 +90,7 @@ int main()
 
                 // Sets initial position of each rotor
                 if (setting == 2) {
-                    cout << "Set the rotor start positions from 1 - 26. \n";
+                    cout << "Set the rotor start positions from 1 - 26. " << endl;
 
                     cout << "Left: ";
                     lStartPosition = getInt(1, 26) - 1;
@@ -109,8 +109,8 @@ int main()
                 // Setting plugboard
                 if (setting == 4) {
                     int toSwap;
-                    cout << "How many pairs of characters would you like to swap?\n";
-                    cout << "(You may swap up to 6)\n";
+                    cout << "How many pairs of characters would you like to swap?" << endl;
+                    cout << "(You may swap up to 6)" << endl;
                     toSwap = getInt(0,6);
 
                     // Creates letter pairs which map to one another in plugboard
@@ -126,18 +126,14 @@ int main()
                 }
 
                 // Quit
-                if (setting == 0) {
+                if (setting == 0)
                     break;
-                }
-
             }
 
         }
 
-        else if (mode == 0) {
+        else if (mode == 0)
             break;
-        }
-
     }
 
     return 0;
@@ -146,9 +142,10 @@ int main()
 // Takes a char from the user
 int getChar() {
     char input;
-    while(true) {
+    while (true) {
         cin >> input;
-        if (isAllowed(input)) {break;}
+        if (isAllowed(input))
+            break;
     }
     return input;
 }
@@ -160,7 +157,7 @@ int getInt(int lower, int upper) {
     while (!(cin >> input) || input < lower || input > upper) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        // cout << "Enter an integer from " << lower << " - " << upper << ":\n";
+        // cout << "Enter an integer from " << lower << " - " << upper << ":" << endl;
     }
     return input;
 }
@@ -168,7 +165,5 @@ int getInt(int lower, int upper) {
 
 // Checks if user input is lowercase a-z
 bool isAllowed(char a) {
-    int aNum = a - 'a';
-    if (aNum >= 0 && aNum < 26) {return true;}
-    else {return false;}
+    return (a >= 'a' && a <= 'z');
 }

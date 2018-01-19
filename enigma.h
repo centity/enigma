@@ -15,8 +15,6 @@ private:
     Plugboard plugboard;
     Rotor lRotor, mRotor, rRotor;
     Reflector reflector;
-
-    int rotationCounter = 0;
 };
 
 #endif // ENIGMA_H

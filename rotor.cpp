@@ -1,8 +1,9 @@
 #include <iostream>
 #include "rotor.h"
 
-Rotor::Rotor(const char letters[], int startPosition)
+Rotor::Rotor(const char letters[], char notchLetter, int startPosition)
     : Transformer(letters)
+    , notch(notchLetter - 'a')
     , offset(startPosition)
 {
 }
@@ -16,6 +17,10 @@ char Rotor::rTransform(char letter){
 }
 
 void Rotor::rotate(){
-    offset ++;
+    offset++;
+}
+
+bool Rotor::isNotched(){
+    return (offset % 26 == notch);
 }
 
