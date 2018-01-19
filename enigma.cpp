@@ -29,12 +29,13 @@ Enigma::Enigma(const char plugMap[], int lRotNum, int lStartPosition, int mRotNu
 {
 }
 
-// Self explanatory
 char Enigma::transform(char letter) {
+    rRotor.step();
+    // Steps the adjacent rotor when the notch aligns
     if (rRotor.isNotched())
-            mRotor.rotate();
+            mRotor.step();
     if (mRotor.isNotched())
-            lRotor.rotate();
+            lRotor.step();
 
     letter = plugboard.transform(letter);
     letter = lRotor.transform(mRotor.transform(rRotor.transform(letter)));

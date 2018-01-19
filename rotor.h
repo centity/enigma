@@ -8,7 +8,7 @@ public:
     Rotor(const char letters[], char notchLetter, int startPosition);
     char transform(char letter);
     char rTransform(char letter);
-    void rotate();
+    void step();
     bool isNotched();
 
 private:

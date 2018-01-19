@@ -16,7 +16,7 @@ char Rotor::rTransform(char letter){
     return this->Transformer::rTransform(letter, offset);
 }
 
-void Rotor::rotate(){
+void Rotor::step(){
     offset++;
 }
 
