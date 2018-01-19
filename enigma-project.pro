@@ -16,3 +16,6 @@ HEADERS += \
     reflector.h \
     plugboard.h \
     enigma.h
+
+FORMS += \
+    mainwindow.ui
